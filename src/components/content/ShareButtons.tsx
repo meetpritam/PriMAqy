@@ -1,0 +1,77 @@
+'use client';
+
+import React, { useState } from 'react';
+import { Check, Copy } from 'lucide-react';
+import { trackEvent } from '@/lib/analytics';
+
+interface ShareButtonsProps {
+  title: string;
+  url?: string;
+  className?: string;
+}
+
+export function ShareButtons({ title, url, className = '' }: ShareButtonsProps) {
+  const [copied, setCopied] = useState(false);
+  const shareUrl = typeof window !== 'undefined' ? url || window.location.href : '';
+
+  const copyToClipboard = () => {
+    if (typeof navigator !== 'undefined') {
+      navigator.clipboard.writeText(shareUrl);
+      setCopied(true);
+      trackEvent('article_share', { method: 'copy_link' });
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
+
+  const shareX = () => {
+    trackEvent('article_share', { method: 'twitter' });
+    window.open(
+      `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(shareUrl)}`,
+      '_blank'
+    );
+  };
+
+  const shareLinkedIn = () => {
+    trackEvent('article_share', { method: 'linkedin' });
+    window.open(
+      `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`,
+      '_blank'
+    );
+  };
+
+  return (
+    <div className={`flex items-center gap-2 ${className}`}>
+      <span className="text-xs font-semibold text-zinc-500 uppercase tracking-wider">Share:</span>
+      <button
+        onClick={shareX}
+        type="button"
+        className="flex h-8 items-center gap-1.5 rounded-md border border-zinc-200 bg-white px-2.5 text-xs font-medium text-zinc-700 hover:bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800 transition-colors"
+      >
+        <svg className="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+        </svg>
+        <span>X</span>
+      </button>
+
+      <button
+        onClick={shareLinkedIn}
+        type="button"
+        className="flex h-8 items-center gap-1.5 rounded-md border border-zinc-200 bg-white px-2.5 text-xs font-medium text-zinc-700 hover:bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800 transition-colors"
+      >
+        <svg className="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.74a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2z" />
+        </svg>
+        <span>LinkedIn</span>
+      </button>
+
+      <button
+        onClick={copyToClipboard}
+        type="button"
+        className="flex h-8 items-center gap-1.5 rounded-md border border-zinc-200 bg-white px-2.5 text-xs font-medium text-zinc-700 hover:bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800 transition-colors"
+      >
+        {copied ? <Check className="h-3.5 w-3.5 text-emerald-500" /> : <Copy className="h-3.5 w-3.5" />}
+        <span>{copied ? 'Copied' : 'Copy'}</span>
+      </button>
+    </div>
+  );
+}
