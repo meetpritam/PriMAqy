@@ -5,17 +5,18 @@ import { TrustStrip } from '@/components/sections/TrustStrip';
 import { ProblemSection } from '@/components/sections/ProblemSection';
 import { SolutionSection } from '@/components/sections/SolutionSection';
 import { ProductsSection } from '@/components/sections/ProductsSection';
+import { AiAutomationSection } from '@/components/sections/AiAutomationSection';
 import { TechHighlightsSection } from '@/components/sections/TechHighlightsSection';
-import { WhyPrimaqySection } from '@/components/sections/WhyPrimaqySection';
 import { StartupAnchorSection } from '@/components/sections/StartupAnchorSection';
-import { RoadmapPreviewSection } from '@/components/sections/RoadmapPreviewSection';
 import { TeamPreviewSection } from '@/components/sections/TeamPreviewSection';
+import { RoadmapPreviewSection } from '@/components/sections/RoadmapPreviewSection';
+import { WhyPrimaqySection } from '@/components/sections/WhyPrimaqySection';
 import { FinalCTASection } from '@/components/sections/FinalCTASection';
 
 export const metadata = constructMetadata({
-  title: 'PriMAqy — AI & Technology Venture',
+  title: 'PriMAqy — AI, Automation & Software',
   description:
-    'PriMAqy is an emerging AI and technology venture building practical software products for the next generation of digital work.',
+    'PriMAqy is an emerging AI and technology venture building practical software products like Toolsetic for the next generation of digital work.',
 });
 
 export default function HomePage() {
@@ -26,11 +27,12 @@ export default function HomePage() {
       <ProblemSection />
       <SolutionSection />
       <ProductsSection />
+      <AiAutomationSection />
       <TechHighlightsSection />
-      <WhyPrimaqySection />
       <StartupAnchorSection />
-      <RoadmapPreviewSection />
       <TeamPreviewSection />
+      <RoadmapPreviewSection />
+      <WhyPrimaqySection />
       <FinalCTASection />
     </article>
   );

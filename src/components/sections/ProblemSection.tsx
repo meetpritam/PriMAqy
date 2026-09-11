@@ -1,57 +1,84 @@
 import React from 'react';
+import { Layers, BrainCircuit, Workflow } from 'lucide-react';
 import { PageContainer } from '@/components/layout/PageContainer';
-import { SectionWrapper } from '@/components/layout/SectionWrapper';
 import { SectionHeading } from '@/components/ui/SectionHeading';
-import { Card } from '@/components/ui/Card';
-import { Layers, HelpCircle, RefreshCw } from 'lucide-react';
+
+const problems = [
+  {
+    icon: Layers,
+    title: 'Fragmented Toolchains',
+    description:
+      'Digital teams switch between dozens of disconnected apps every day, scattering context and draining focused execution.',
+    stat: '42%',
+    statLabel: 'Productivity Lost in App Switching',
+  },
+  {
+    icon: BrainCircuit,
+    title: 'Information & Context Overload',
+    description:
+      'Raw data is abundant, but actionable intelligence remains hidden inside unorganized documentation and complex dashboards.',
+    stat: '3.5h',
+    statLabel: 'Wasted Daily Searching Information',
+  },
+  {
+    icon: Workflow,
+    title: 'Manual Workflow Complexity',
+    description:
+      'Repetitive manual operations slow down software innovation, turning build cycles into tedious administrative overhead.',
+    stat: '68%',
+    statLabel: 'Developer Time Spent on Repetitive Tasks',
+  },
+];
 
 export function ProblemSection() {
-  const problems = [
-    {
-      icon: Layers,
-      title: 'Fragmented Tools',
-      description: 'Too many disconnected tools make discovery and integration difficult for everyday users.',
-    },
-    {
-      icon: HelpCircle,
-      title: 'Knowledge Overload',
-      description: 'Users struggle to find the right technology, optimal prompts, and effective workflows.',
-    },
-    {
-      icon: RefreshCw,
-      title: 'Workflow Complexity',
-      description: 'Switching constantly between multiple systems and paywalled apps wastes time and energy.',
-    },
-  ];
-
   return (
-    <SectionWrapper className="relative border-y border-slate-200/80 bg-gradient-to-b from-slate-100/60 via-slate-50 to-slate-100/60 py-8 sm:py-14 lg:py-20">
-      <PageContainer size="lg" className="space-y-6 sm:space-y-12">
+    <section className="border-b border-[#e5e5e5] bg-[#ffffff] py-16 sm:py-24">
+      <PageContainer size="lg">
         <SectionHeading
-          eyebrow="The Challenge"
+          eyebrow="THE CHALLENGE"
           title="Technology is powerful. Using it effectively shouldn't be complicated."
-          description="The modern digital ecosystem is fragmented across thousands of tools, platforms, prompts, templates, and workflows. PriMAqy is exploring ways to make this ecosystem simpler and more useful."
+          description="Modern creators and developers face unprecedented complexity. PriMAqy eliminates friction by engineering unified, practical intelligence."
+          align="center"
         />
 
-        <div className="grid grid-cols-1 gap-3.5 sm:gap-6 md:grid-cols-3">
-          {problems.map((problem) => {
-            const Icon = problem.icon;
+        {/* 3-Column Editorial Grid */}
+        <div className="mt-12 sm:mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
+          {problems.map((item, index) => {
+            const Icon = item.icon;
             return (
-              <Card key={problem.title} variant="glow" className="space-y-2.5 sm:space-y-4 p-4 sm:p-6">
-                <div className="flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-slate-100 border border-slate-200/90 shadow-2xs">
-                  <Icon className="h-4 w-4 sm:h-5 sm:w-5 text-slate-800" />
+              <div
+                key={index}
+                className="group relative flex flex-col justify-between rounded-2xl border border-[#e5e5e5] bg-[#fafafa] p-6 sm:p-8 transition-all duration-300 hover:border-[#d4d4d4] hover:bg-white hover:shadow-md"
+              >
+                <div>
+                  {/* Icon Header */}
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white border border-[#e5e5e5] text-[#171717] shadow-xs group-hover:border-[#2563eb] group-hover:text-[#2563eb] transition-colors">
+                    <Icon className="h-6 w-6" />
+                  </div>
+
+                  <h3 className="mt-6 text-xl font-semibold text-[#171717] tracking-tight">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-3 text-sm text-[#525252] leading-relaxed font-normal">
+                    {item.description}
+                  </p>
                 </div>
-                <h3 className="text-base sm:text-xl font-bold text-slate-900">
-                  {problem.title}
-                </h3>
-                <p className="text-xs sm:text-sm leading-relaxed text-slate-600">
-                  {problem.description}
-                </p>
-              </Card>
+
+                {/* Metric Footer */}
+                <div className="mt-8 pt-6 border-t border-[#e5e5e5] flex items-baseline justify-between">
+                  <span className="text-2xl font-bold font-mono text-[#171717]">
+                    {item.stat}
+                  </span>
+                  <span className="text-xs text-[#737373] font-mono text-right max-w-[140px]">
+                    {item.statLabel}
+                  </span>
+                </div>
+              </div>
             );
           })}
         </div>
       </PageContainer>
-    </SectionWrapper>
+    </section>
   );
 }

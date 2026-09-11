@@ -1,66 +1,104 @@
 import React from 'react';
+import { Compass, Sparkles, Cpu, CheckCircle2 } from 'lucide-react';
 import { PageContainer } from '@/components/layout/PageContainer';
-import { SectionWrapper } from '@/components/layout/SectionWrapper';
 import { SectionHeading } from '@/components/ui/SectionHeading';
-import { Card } from '@/components/ui/Card';
-import { Compass, PenTool, Zap } from 'lucide-react';
+
+const pillars = [
+  {
+    badge: '01 / DISCOVER',
+    icon: Compass,
+    title: 'AI & Machine Learning',
+    description:
+      'Engineered intelligent models and prompt systems that extract high-signal insights from unorganized information and workflows.',
+    features: [
+      'Context-aware knowledge extraction',
+      'Specialized domain prompt libraries',
+      'Low-latency reasoning architectures',
+    ],
+  },
+  {
+    badge: '02 / CREATE',
+    icon: Sparkles,
+    title: 'Software & SaaS Ecosystems',
+    description:
+      'High-performance digital products crafted with Next.js, React 19, and decoupled server architectures designed for effortless user interaction.',
+    features: [
+      'Flagship Toolsetic product suite',
+      'Ultra-responsive web interfaces',
+      'Modular developer & creator tools',
+    ],
+  },
+  {
+    badge: '03 / AUTOMATE',
+    icon: Cpu,
+    title: 'AI & Workflow Automation',
+    description:
+      'Autonomous system pipelines that connect disparate digital touchpoints into streamlined, friction-free operations.',
+    features: [
+      'End-to-end task automation',
+      'Intelligent trigger & action routing',
+      'Zero-code productivity integration',
+    ],
+  },
+];
 
 export function SolutionSection() {
-  const pillars = [
-    {
-      icon: Compass,
-      title: 'Discover',
-      description: 'Find the right technology, tools, prompts, and resources tailored to your goals.',
-      badgeColor: 'bg-blue-50 text-blue-600 border-blue-200',
-    },
-    {
-      icon: PenTool,
-      title: 'Create',
-      description: 'Build useful workflows, content, code, and digital products faster.',
-      badgeColor: 'bg-indigo-50 text-indigo-600 border-indigo-200',
-    },
-    {
-      icon: Zap,
-      title: 'Automate',
-      description: 'Reduce repetitive digital work through intelligent systems and automated micro-utilities.',
-      badgeColor: 'bg-cyan-50 text-cyan-600 border-cyan-200',
-    },
-  ];
-
   return (
-    <SectionWrapper className="relative border-y border-slate-200/80 bg-gradient-to-b from-slate-50 via-blue-50/20 to-slate-50 py-8 sm:py-14 lg:py-20">
-      {/* Background Radial Glow */}
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[350px] w-[600px] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.06),transparent_70%)]" />
-
-      <PageContainer size="lg" className="relative space-y-6 sm:space-y-12">
+    <section className="border-b border-[#e5e5e5] bg-[#fafafa] py-16 sm:py-24">
+      <PageContainer size="lg">
         <SectionHeading
-          eyebrow="Our Approach"
-          title="We build technology around real problems."
-          description="PriMAqy focuses on turning complex technology into practical products that people can actually use."
+          eyebrow="WHAT WE BUILD"
+          title="Engineered for Discovery, Creation & Automation."
+          description="We build digital systems that simplify complexity and empower creators, developers, and founders."
+          align="center"
         />
 
-        <div className="grid grid-cols-1 gap-3.5 sm:gap-6 md:grid-cols-3">
+        <div className="mt-12 sm:mt-16 space-y-6">
           {pillars.map((pillar, idx) => {
             const Icon = pillar.icon;
             return (
-              <Card key={pillar.title} variant="glow" className="space-y-2.5 sm:space-y-4 p-4 sm:p-6">
-                <div className="flex items-center justify-between">
-                  <div className={`flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-xl border ${pillar.badgeColor} shadow-xs`}>
-                    <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
+              <div
+                key={idx}
+                className="group relative rounded-2xl border border-[#e5e5e5] bg-white p-6 sm:p-10 transition-all duration-300 hover:border-[#d4d4d4] hover:shadow-md"
+              >
+                <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:items-center">
+                  
+                  {/* Left Column: Number Badge & Header */}
+                  <div className="space-y-3 lg:col-span-5">
+                    <span className="inline-block font-mono text-xs font-semibold tracking-wider text-[#2563eb]">
+                      {pillar.badge}
+                    </span>
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#fafafa] border border-[#e5e5e5] text-[#171717]">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <h3 className="text-2xl font-semibold text-[#171717] tracking-tight">
+                        {pillar.title}
+                      </h3>
+                    </div>
+                    <p className="text-sm sm:text-base text-[#525252] leading-relaxed font-normal">
+                      {pillar.description}
+                    </p>
                   </div>
-                  <span className="text-xs font-mono font-bold text-slate-300">0{idx + 1}</span>
+
+                  {/* Right Column: Feature List */}
+                  <div className="lg:col-span-7 lg:border-l lg:border-[#e5e5e5] lg:pl-10">
+                    <ul className="space-y-3">
+                      {pillar.features.map((feat, fIdx) => (
+                        <li key={fIdx} className="flex items-center gap-3 text-sm text-[#171717] font-medium">
+                          <CheckCircle2 className="h-4 w-4 text-[#2563eb] shrink-0" />
+                          <span>{feat}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
                 </div>
-                <h3 className="text-base sm:text-xl font-bold text-slate-900">
-                  {pillar.title}
-                </h3>
-                <p className="text-xs sm:text-sm leading-relaxed text-slate-600">
-                  {pillar.description}
-                </p>
-              </Card>
+              </div>
             );
           })}
         </div>
       </PageContainer>
-    </SectionWrapper>
+    </section>
   );
 }

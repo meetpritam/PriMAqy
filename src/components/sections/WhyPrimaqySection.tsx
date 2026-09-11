@@ -1,68 +1,76 @@
 import React from 'react';
+import { ArrowRight, Rss, Clock } from 'lucide-react';
 import { PageContainer } from '@/components/layout/PageContainer';
-import { SectionWrapper } from '@/components/layout/SectionWrapper';
 import { SectionHeading } from '@/components/ui/SectionHeading';
-import { Card } from '@/components/ui/Card';
-import { Target, Unlock, Blocks, Layers } from 'lucide-react';
+import { Button } from '@/components/ui/Button';
+import { articlesData } from '@/data/articles';
 
 export function WhyPrimaqySection() {
-  const principles = [
-    {
-      icon: Target,
-      title: 'Practical',
-      description: 'Build useful technology that solves daily workflow problems rather than technology for hype.',
-      accent: 'bg-blue-50 text-blue-600 border-blue-200',
-    },
-    {
-      icon: Unlock,
-      title: 'Accessible',
-      description: 'Make powerful intelligent utilities easy to discover, understand, and use.',
-      accent: 'bg-indigo-50 text-indigo-600 border-indigo-200',
-    },
-    {
-      icon: Blocks,
-      title: 'Modular',
-      description: 'Products evolve independently while operating seamlessly within a shared ecosystem.',
-      accent: 'bg-cyan-50 text-cyan-600 border-cyan-200',
-    },
-    {
-      icon: Layers,
-      title: 'Long-Term',
-      description: 'Build solid engineering infrastructure that can support multiple products for years.',
-      accent: 'bg-violet-50 text-violet-600 border-violet-200',
-    },
-  ];
+  const featuredArticles = articlesData.slice(0, 3);
 
   return (
-    <SectionWrapper className="relative py-10 sm:py-16 lg:py-24 bg-gradient-to-b from-slate-50 via-blue-50/20 to-slate-50">
-      <PageContainer size="lg" className="space-y-8 sm:space-y-12">
-        <SectionHeading
-          eyebrow="Core Values"
-          title="Why PriMAqy?"
-          description="Our foundational principles guide how we design software and architect products."
-        />
-
-        <div className="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-4">
-          {principles.map((p) => {
-            const Icon = p.icon;
-            return (
-              <Card key={p.title} variant="glow" className="space-y-2.5 sm:space-y-4 p-4 sm:p-6">
-                <div className={`flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-xl border ${p.accent} shadow-xs shrink-0`}>
-                  <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
-                </div>
-                <div>
-                  <h3 className="text-base sm:text-xl font-bold text-slate-900">
-                    {p.title}
-                  </h3>
-                  <p className="text-[11px] sm:text-sm leading-relaxed text-slate-600 pt-1 font-normal">
-                    {p.description}
-                  </p>
-                </div>
-              </Card>
-            );
-          })}
+    <section className="border-b border-[#e5e5e5] bg-[#fafafa] py-16 sm:py-24">
+      <PageContainer size="lg">
+        
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 pb-10 border-b border-[#e5e5e5]">
+          <SectionHeading
+            eyebrow="EDITORIAL & RESEARCH"
+            title="PriMAqy Insights."
+            description="Deep dives into artificial intelligence, workflow automation, software engineering, and digital venture building."
+            align="left"
+          />
+          <div className="flex items-center gap-3 shrink-0">
+            <Button href="/rss.xml" variant="ghost" size="sm" shape="pill">
+              <Rss className="h-4 w-4 text-[#2563eb]" />
+              <span>RSS Feed</span>
+            </Button>
+            <Button href="/insights" variant="secondary" size="md" shape="pill">
+              <span>View All Articles</span>
+              <ArrowRight className="h-4 w-4" />
+            </Button>
+          </div>
         </div>
+
+        {/* Articles Grid */}
+        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+          {featuredArticles.map((article) => (
+            <article
+              key={article.id}
+              className="group rounded-2xl border border-[#e5e5e5] bg-white p-6 flex flex-col justify-between transition-all duration-300 hover:border-[#d4d4d4] hover:shadow-md"
+            >
+              <div className="space-y-3">
+                <div className="flex items-center justify-between font-mono text-xs text-[#737373]">
+                  <span className="text-[#2563eb] font-semibold uppercase">{article.category}</span>
+                  <div className="flex items-center gap-1">
+                    <Clock className="h-3 w-3" />
+                    <span>{article.readingTime}</span>
+                  </div>
+                </div>
+
+                <h3 className="text-xl font-semibold text-[#171717] tracking-tight group-hover:text-[#2563eb] transition-colors leading-snug">
+                  <a href={`/insights/${article.slug}`}>
+                    {article.title}
+                  </a>
+                </h3>
+
+                <p className="text-xs sm:text-sm text-[#525252] leading-relaxed line-clamp-3">
+                  {article.excerpt}
+                </p>
+              </div>
+
+              <div className="mt-6 pt-4 border-t border-[#e5e5e5] flex items-center justify-between text-xs font-mono font-semibold text-[#2563eb]">
+                <a href={`/insights/${article.slug}`} className="inline-flex items-center gap-1 hover:underline">
+                  <span>Read Article</span>
+                  <ArrowRight className="h-3 w-3" />
+                </a>
+                <span className="text-[#a3a3a3] text-[10px]">{article.publishedAt}</span>
+              </div>
+            </article>
+          ))}
+        </div>
+
       </PageContainer>
-    </SectionWrapper>
+    </section>
   );
 }

@@ -1,101 +1,68 @@
 import React from 'react';
 import { PageContainer } from '@/components/layout/PageContainer';
-import { SectionWrapper } from '@/components/layout/SectionWrapper';
 import { SectionHeading } from '@/components/ui/SectionHeading';
-import { Card } from '@/components/ui/Card';
-import { Badge } from '@/components/ui/Badge';
-import { Button } from '@/components/ui/Button';
-import { ArrowRight, CheckCircle2, Clock } from 'lucide-react';
+import { roadmapData } from '@/data/roadmap';
 
 export function RoadmapPreviewSection() {
-  const phases = [
-    {
-      number: '01',
-      name: 'Foundation',
-      status: 'Completed',
-      items: ['Brand Identity', 'Web Architecture', 'Research & Specs', 'Engineered Prototype'],
-    },
-    {
-      number: '02',
-      name: 'Product',
-      status: 'In Development',
-      items: ['Toolsetic MVP', 'Core Micro-Tools', 'Prompt Ecosystem', 'Template Library'],
-    },
-    {
-      number: '03',
-      name: 'Growth',
-      status: 'Planned',
-      items: ['User Onboarding', 'Community Hub', 'Workflow Automation', 'Public Distribution'],
-    },
-    {
-      number: '04',
-      name: 'Ecosystem',
-      status: 'Planned',
-      items: ['Multiple AI Products', 'Developer Ecosystem', 'Strategic Partnerships', 'APIs'],
-    },
-  ];
-
   return (
-    <SectionWrapper className="relative py-10 sm:py-16 lg:py-24 bg-slate-50/50">
-      <PageContainer size="lg" className="space-y-8 sm:space-y-12">
+    <section className="border-b border-[#e5e5e5] bg-[#ffffff] py-16 sm:py-24">
+      <PageContainer size="lg">
         <SectionHeading
-          eyebrow="Timeline"
-          title="Product & Venture Roadmap"
-          description="Transparent strategic trajectory tracking our development from foundation to ecosystem."
+          eyebrow="VISION & ROADMAP"
+          title="Building the intelligence layer for tomorrow's software."
+          description="Our long-term architectural trajectory from foundational R&D to global ecosystem deployment."
+          align="center"
         />
 
-        <div className="grid grid-cols-1 gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {phases.map((phase) => (
-            <Card key={phase.number} variant="glow" className="relative space-y-4 p-5 sm:p-6 border-slate-200/90">
-              <div className="flex items-center justify-between">
-                <span className="text-2xl sm:text-3xl font-mono font-black text-blue-700">
-                  {phase.number}
-                </span>
-                <Badge
-                  variant={
-                    phase.status === 'Completed'
-                      ? 'status'
-                      : phase.status === 'In Development'
-                      ? 'glow'
-                      : 'outline'
-                  }
-                  className="text-[11px]"
-                >
-                  {phase.status}
-                </Badge>
+        <div className="mt-12 sm:mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {roadmapData.map((item, idx) => (
+            <div
+              key={idx}
+              className="rounded-2xl border border-[#e5e5e5] bg-[#fafafa] p-6 flex flex-col justify-between transition-all duration-300 hover:border-[#d4d4d4] hover:bg-white hover:shadow-md"
+            >
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-xs font-semibold uppercase text-[#2563eb]">
+                    {item.phase}
+                  </span>
+                  <span
+                    className={`text-[10px] font-mono font-semibold px-2 py-0.5 rounded-full border ${
+                      item.status === 'Completed'
+                        ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                        : item.status === 'In Progress'
+                        ? 'bg-blue-50 text-blue-700 border-blue-200'
+                        : 'bg-slate-100 text-slate-600 border-slate-200'
+                    }`}
+                  >
+                    {item.status}
+                  </span>
+                </div>
+
+                <h3 className="text-xl font-semibold text-[#171717] tracking-tight">
+                  {item.title}
+                </h3>
+
+                <p className="text-xs text-[#737373] font-mono">
+                  {item.moduleName}
+                </p>
+
+                <p className="text-xs sm:text-sm text-[#525252] leading-relaxed pt-1">
+                  {item.description}
+                </p>
               </div>
 
-              <h3 className="text-lg sm:text-xl font-bold text-slate-900">
-                {phase.name}
-              </h3>
-
-              <ul className="space-y-2 text-xs font-medium text-slate-700 pt-1">
-                {phase.items.map((item) => (
-                  <li key={item} className="flex items-center gap-2">
-                    {phase.status === 'Completed' ? (
-                      <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
-                    ) : (
-                      <Clock className="h-4 w-4 text-slate-500 shrink-0" />
-                    )}
-                    <span>{item}</span>
+              <ul className="mt-6 pt-4 border-t border-[#e5e5e5] space-y-2 text-xs text-[#171717] font-medium">
+                {item.deliverables.slice(0, 3).map((deliv, dIdx) => (
+                  <li key={dIdx} className="flex items-center gap-2">
+                    <span className="h-1 w-1 rounded-full bg-[#2563eb]" />
+                    <span>{deliv}</span>
                   </li>
                 ))}
               </ul>
-            </Card>
+            </div>
           ))}
         </div>
-
-        <div className="space-y-4 text-center">
-          <Button href="/roadmap" variant="outline" size="md" className="group w-full sm:w-auto justify-center">
-            <span>View Full Roadmap</span>
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </Button>
-
-          <p className="text-xs font-mono font-medium text-slate-700">
-            * Roadmap items represent current plans and may change as product development progresses.
-          </p>
-        </div>
       </PageContainer>
-    </SectionWrapper>
+    </section>
   );
 }

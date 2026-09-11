@@ -24,38 +24,44 @@
 
 @layer base {
   :root {
-    /* === PERMANENT LIGHT MODE ONLY — Vercel x Apple Futuristic Token Hierarchy === */
-
-    /* Canvas & Surfaces */
-    --background: #fcfcfd;
-    --foreground: #0f172a;
+    /* === APPLE-INSPIRED MINIMALIST LIGHT MODE TOKENS === */
+    --background: #fafafa;
+    --foreground: #171717;
     --card: #ffffff;
-    --card-foreground: #0f172a;
+    --card-foreground: #171717;
     --popover: #ffffff;
-    --popover-foreground: #0f172a;
+    --popover-foreground: #171717;
 
-    /* Interactive & Primary */
-    --primary: #0f172a;
+    /* Primary Ink & Action Accents */
+    --primary: #171717;
     --primary-foreground: #ffffff;
-    --secondary: #f1f5f9;
-    --secondary-foreground: #0f172a;
+    --secondary: #f5f5f5;
+    --secondary-foreground: #171717;
 
-    /* Muted surfaces & Text */
-    --muted: #f8fafc;
-    --muted-foreground: #475569;
-    --accent: #f1f5f9;
-    --accent-foreground: #0f172a;
+    /* Muted Surfaces & Paragraph Text */
+    --muted: #f5f5f5;
+    --muted-foreground: #525252;
+    --accent: #f5f5f5;
+    --accent-foreground: #171717;
 
-    /* Status */
+    /* PriMAqy Signature Blue Accent */
+    --brand-blue: #2563eb;
+    --brand-blue-hover: #1d4ed8;
+
+    /* Status & Alerts */
     --destructive: #ef4444;
     --destructive-foreground: #ffffff;
 
-    /* Crisp Hairlines & Controls */
-    --border: #e2e8f0;
-    --input: #cbd5e1;
-    --ring: #0f172a;
-    --radius: 0.875rem;
+    /* Hairlines & Control Borders */
+    --border: #e5e5e5;
+    --input: #e5e5e5;
+    --ring: #171717;
+    --radius: 0.75rem;
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -66,83 +72,57 @@ body {
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 }
 
-/* === FUTURISTIC ATMOSPHERIC BACKGROUND UTILITIES === */
+/* === APPLE-INSPIRED UTILITY CLASSES === */
 
-/* Multi-Tone Atmospheric Mesh Glow */
-.bg-mesh-glow {
-  background-image: 
-    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(59, 130, 246, 0.08), transparent 70%),
-    radial-gradient(ellipse 60% 40% at 85% 30%, rgba(147, 51, 234, 0.05), transparent 60%),
-    radial-gradient(ellipse 50% 50% at 15% 65%, rgba(6, 182, 212, 0.06), transparent 60%),
-    radial-gradient(ellipse 70% 40% at 50% 100%, rgba(99, 102, 241, 0.05), transparent 70%);
+/* Hairline border utilities */
+.border-hairline {
+  border-color: #e5e5e5;
 }
 
-/* Technical Precision Grid Background */
+/* Subtle mesh glow wash for Hero */
+.bg-mesh-glow {
+  background-image: 
+    radial-gradient(ellipse 70% 45% at 50% -10%, rgba(37, 99, 235, 0.07), transparent 70%),
+    radial-gradient(ellipse 50% 40% at 80% 20%, rgba(147, 51, 234, 0.04), transparent 60%),
+    radial-gradient(ellipse 40% 40% at 20% 60%, rgba(6, 182, 212, 0.05), transparent 60%);
+}
+
+/* Technical Precision Grid */
 .bg-tech-grid {
   background-image: 
-    linear-gradient(to right, rgba(15, 23, 42, 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(15, 23, 42, 0.035) 1px, transparent 1px);
+    linear-gradient(to right, rgba(23, 23, 23, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(23, 23, 23, 0.03) 1px, transparent 1px);
   background-size: 32px 32px;
 }
 
-/* Technical Dot Matrix Pattern */
-.bg-dot-matrix {
-  background-image: radial-gradient(rgba(15, 23, 42, 0.07) 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-
-/* Soft Ambient Radial Orbs */
-.bg-glow-orb-blue {
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, rgba(59, 130, 246, 0) 70%);
-}
-.bg-glow-orb-violet {
-  background: radial-gradient(circle, rgba(147, 51, 234, 0.09) 0%, rgba(147, 51, 234, 0) 70%);
-}
-.bg-glow-orb-cyan {
-  background: radial-gradient(circle, rgba(6, 182, 212, 0.10) 0%, rgba(6, 182, 212, 0) 70%);
-}
-
-/* === CARD & SURFACE ELEVATION UTILITIES === */
-
-/* Futuristic Card Surface */
-.card-futuristic {
+/* Premium Card Surface */
+.card-apple {
   background-color: #ffffff;
-  border: 1px solid rgba(226, 232, 240, 0.85);
+  border: 1px solid #e5e5e5;
   box-shadow: 
-    0 1px 3px 0 rgba(15, 23, 42, 0.03),
-    0 8px 24px -4px rgba(15, 23, 42, 0.04),
-    inset 0 1px 0 0 rgba(255, 255, 255, 0.9);
+    0 1px 2px 0 rgba(0, 0, 0, 0.02),
+    0 4px 16px -2px rgba(0, 0, 0, 0.03);
   transition: all 250ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.card-futuristic:hover {
-  transform: translateY(-3px);
-  border-color: rgba(59, 130, 246, 0.35);
+.card-apple:hover {
+  transform: translateY(-2px);
+  border-color: #d4d4d4;
   box-shadow: 
-    0 16px 36px -6px rgba(59, 130, 246, 0.12),
-    0 4px 12px -2px rgba(15, 23, 42, 0.04),
-    inset 0 1px 0 0 rgba(255, 255, 255, 1);
+    0 12px 28px -4px rgba(0, 0, 0, 0.06),
+    0 2px 6px 0 rgba(0, 0, 0, 0.02);
 }
 
-/* Gradient Border Accent Card */
-.card-gradient-border {
-  position: relative;
-  border-radius: 0.875rem;
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.25), rgba(147, 51, 234, 0.15), rgba(6, 182, 212, 0.25)) p-box,
-              #ffffff b-box;
-  border: 1px solid transparent;
-}
-
-/* Metallic & Brand Gradient Text */
-.text-gradient-primary {
-  background-image: linear-gradient(135deg, #0f172a 0%, #334155 50%, #1e293b 100%);
+/* Typography Gradient */
+.text-gradient-ink {
+  background-image: linear-gradient(180deg, #171717 0%, #404040 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-.text-gradient-brand {
-  background-image: linear-gradient(135deg, #2563eb 0%, #4f46e5 50%, #0891b2 100%);
+.text-gradient-blue {
+  background-image: linear-gradient(135deg, #2563eb 0%, #1d4ed8 50%, #0284c7 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -157,11 +137,11 @@ body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: #d4d4d4;
   border-radius: 9999px;
 }
 
-/* Mobile Navigation Drawer Animations */
+/* Mobile Drawer Animations */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -179,4 +159,3 @@ body {
 .animate-slideInRight {
   animation: slideInRight 250ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
-

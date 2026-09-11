@@ -1,48 +1,55 @@
 import React from 'react';
+import { ArrowRight, MessageSquare, Mail, Sparkles } from 'lucide-react';
 import { PageContainer } from '@/components/layout/PageContainer';
-import { SectionWrapper } from '@/components/layout/SectionWrapper';
-import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
-import { ArrowRight, Mail, Sparkles } from 'lucide-react';
 
 export function FinalCTASection() {
+  const whatsappUrl = 'https://wa.me/918252468903?text=Hello%20PriMAqy%20Team%2C%20I%20would%20like%20to%20connect.';
+
   return (
-    <SectionWrapper className="relative py-24 overflow-hidden">
-      {/* Ambient Radial Background Glow */}
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[450px] w-[800px] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.12),transparent_70%)] blur-3xl" />
-
-      <PageContainer size="lg" className="relative z-10">
-        <div className="relative rounded-3xl bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-600 p-1 shadow-[0_24px_50px_-12px_rgba(37,99,235,0.25)]">
-          <Card className="rounded-[22px] border-0 bg-white/95 p-5 sm:p-10 lg:p-14 backdrop-blur-xl text-center space-y-6">
-            <div className="mx-auto flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 border border-blue-200/80 shadow-xs">
-              <Mail className="h-6 w-6 sm:h-7 sm:w-7" />
+    <section className="border-b border-[#e5e5e5] bg-[#ffffff] py-16 sm:py-24">
+      <PageContainer size="lg">
+        <div className="rounded-3xl border border-[#e5e5e5] bg-gradient-to-br from-[#171717] via-[#262626] to-[#0a0a0a] p-8 sm:p-14 text-white shadow-xl">
+          <div className="max-w-3xl mx-auto text-center space-y-6">
+            
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3.5 py-1 text-xs font-mono text-white/90 backdrop-blur-md">
+              <Sparkles className="h-3.5 w-3.5 text-blue-400" />
+              <span>START A CONVERSATION</span>
             </div>
 
-            <div className="space-y-2 max-w-2xl mx-auto">
-              <div className="inline-flex items-center gap-1.5 text-xs font-mono font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-3 py-1 rounded-full border border-blue-200/80">
-                <Sparkles className="h-3.5 w-3.5" />
-                <span>Get In Touch</span>
-              </div>
-              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 pt-2 leading-tight">
-                Let&apos;s build what&apos;s next.
-              </h2>
-              <p className="text-sm sm:text-base lg:text-lg text-slate-600 leading-relaxed font-normal pt-1">
-                Whether you&apos;re exploring a partnership, a product, technology, or simply want to connect, we&apos;d like to hear from you.
-              </p>
-            </div>
+            <h2 className="text-3xl min-[400px]:text-4xl sm:text-5xl font-semibold tracking-[-0.03em] text-white">
+              Let&apos;s build what&apos;s next.
+            </h2>
 
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 pt-2">
-              <Button href="/contact" variant="gradient" size="lg" className="w-full sm:w-auto group">
-                <span>Contact PriMAqy</span>
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            <p className="text-base sm:text-lg text-slate-300 max-w-xl mx-auto leading-relaxed">
+              Have an inquiry, partnership proposal, or feedback for PriMAqy? Reach out directly to our founding team.
+            </p>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-medium shadow-lg transition-all"
+              >
+                <MessageSquare className="h-4 w-4" />
+                <span>Chat on WhatsApp (+91 8252468903)</span>
+              </a>
+
+              <Button href="/contact" variant="secondary" size="lg" shape="pill" className="w-full sm:w-auto">
+                <Mail className="h-4 w-4" />
+                <span>Contact Page</span>
+                <ArrowRight className="h-4 w-4" />
               </Button>
-              <Button href="/products" variant="outline" size="lg" className="w-full sm:w-auto">
-                Explore Products
-              </Button>
             </div>
-          </Card>
+
+            <div className="pt-4 text-xs font-mono text-slate-400">
+              Patna, Bihar, India • Responsive Support within 24 Hours
+            </div>
+
+          </div>
         </div>
       </PageContainer>
-    </SectionWrapper>
+    </section>
   );
 }
