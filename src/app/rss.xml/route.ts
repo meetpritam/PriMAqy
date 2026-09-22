@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { ContentRepository } from '@/lib/contentRepository';
 
 export async function GET() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://primaqy.com';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://primaqy.in';
   const articles = ContentRepository.getPublishedArticles();
 
   const rssItems = articles

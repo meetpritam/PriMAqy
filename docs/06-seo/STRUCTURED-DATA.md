@@ -9,8 +9,8 @@
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "PriMAqy",
-  "url": "https://primaqy.vercel.app",
-  "logo": "https://primaqy.vercel.app/brand/logo.png",
+  "url": "https://primaqy.in",
+  "logo": "https://primaqy.in/brand/logo.png",
   "description": "Building practical AI for a smarter digital future.",
   "address": {
     "@type": "PostalAddress",

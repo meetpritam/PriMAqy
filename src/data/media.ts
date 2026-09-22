@@ -6,8 +6,8 @@ export const mediaBoilerplate = {
   longDescription:
     'PriMAqy focuses on developing practical software tools, AI integrations, and developer productivity systems. Our flagship product suite, Toolsetic, is designed to eliminate workflow friction by unifying AI micro-tools, prompt libraries, and automation.',
   location: 'Patna, Bihar, India',
-  website: 'https://primaqy.com',
-  mediaContact: 'contact@primaqy.com',
+  website: 'https://primaqy.in',
+  mediaContact: 'contact@primaqy.in',
 };
 
 export const pressReleasesData: PressRelease[] = [

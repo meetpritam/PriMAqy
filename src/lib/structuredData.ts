@@ -1,7 +1,7 @@
 import { companyData } from '@/data/company';
 import { Founder } from '@/types/founder';
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://primaqy.com';
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://primaqy.in';
 
 export function getOrganizationSchema() {
   return {

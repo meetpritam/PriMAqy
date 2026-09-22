@@ -115,7 +115,7 @@ In the project directory, you can run:
 
 - **Pritam Kumar** — Founder & Lead Architect
 - **Location**: Patna, Bihar, India
-- **Contact**: Direct WhatsApp via [PriMAqy Contact](https://primaqy.vercel.app/contact) or `+91 8252468903`
+- **Contact**: Direct WhatsApp via [PriMAqy Contact](https://primaqy.in/contact) or `+91 8252468903`
 
 ---
 

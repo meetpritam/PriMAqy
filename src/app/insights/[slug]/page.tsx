@@ -60,7 +60,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
     publisher: {
       '@type': 'Organization',
       name: 'PriMAqy',
-      url: 'https://primaqy.com',
+      url: 'https://primaqy.in',
     },
   };
 

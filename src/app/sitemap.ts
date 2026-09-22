@@ -3,7 +3,7 @@ import { ContentRepository } from '@/lib/contentRepository';
 import { FounderRepository } from '@/lib/founderRepository';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://primaqy.com';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://primaqy.in';
 
   const staticRoutes = [
     '',

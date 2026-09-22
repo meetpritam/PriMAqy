@@ -12,7 +12,7 @@ export const initialFoundersData: Founder[] = [
     isCoFounder: false,
     title: 'Founder & Technology Lead',
     location: 'Patna, Bihar, India',
-    email: 'pritam@primaqy.com',
+    email: 'pritam@primaqy.in',
     avatarUrl: '/images/pritam-portrait.jpg',
     coverUrl: '/images/pritam-portrait.jpg',
     isPublished: true,
@@ -209,7 +209,7 @@ export const initialFoundersData: Founder[] = [
         role: 'Founder & Primary Architect',
         techStack: ['Next.js 16', 'TypeScript', 'Tailwind CSS', 'Schema.org JSON-LD'],
         status: 'Active',
-        url: 'https://primaqy.com',
+        url: 'https://primaqy.in',
         imageUrl: '/images/logo.jpg',
       },
       {
@@ -299,7 +299,7 @@ export const initialFoundersData: Founder[] = [
       { platform: 'GitHub', url: 'https://github.com/primaqy', label: 'GitHub' },
       { platform: 'Twitter', url: 'https://twitter.com/primaqy', label: 'Twitter / X' },
       { platform: 'LinkedIn', url: 'https://linkedin.com/company/primaqy', label: 'LinkedIn' },
-      { platform: 'Email', url: 'mailto:pritam@primaqy.com', label: 'Email' },
+      { platform: 'Email', url: 'mailto:pritam@primaqy.in', label: 'Email' },
     ],
 
     primaqyConnection: {
@@ -318,7 +318,7 @@ export const initialFoundersData: Founder[] = [
       title: 'Pritam Kumar — Founder of PriMAqy',
       description:
         'Official profile of Pritam Kumar, Founder of PriMAqy — AI & Technology Venture. Explore founder journey, skills, education, projects, and vision from Patna, Bihar, India.',
-      canonicalUrl: 'https://primaqy.com/founders/pritam-kumar',
+      canonicalUrl: 'https://primaqy.in/founders/pritam-kumar',
       ogTitle: 'Pritam Kumar — Founder, PriMAqy',
       ogDescription:
         'Explore the official founder profile of Pritam Kumar: building AI products, Toolsetic, and technology software from Patna, Bihar, India.',
@@ -348,7 +348,7 @@ export const initialFoundersData: Founder[] = [
     isCoFounder: true,
     title: 'Co-Founder & Growth Lead',
     location: 'Patna, Bihar, India',
-    email: 'anshu@primaqy.com',
+    email: 'anshu@primaqy.in',
     avatarUrl: '/images/anshu.jpg',
     coverUrl: '/images/anshu.jpg',
     isPublished: true,
@@ -495,7 +495,7 @@ export const initialFoundersData: Founder[] = [
 
     socialLinks: [
       { platform: 'LinkedIn', url: 'https://linkedin.com/company/primaqy', label: 'LinkedIn' },
-      { platform: 'Email', url: 'mailto:anshu@primaqy.com', label: 'Email' },
+      { platform: 'Email', url: 'mailto:anshu@primaqy.in', label: 'Email' },
     ],
 
     primaqyConnection: {
@@ -513,7 +513,7 @@ export const initialFoundersData: Founder[] = [
       title: 'Anshu Kumar — Co-Founder of PriMAqy',
       description:
         'Official profile of Anshu Kumar, Co-Founder of PriMAqy — AI & Technology Venture. Explore bio, role, projects, and venture execution from Patna, Bihar, India.',
-      canonicalUrl: 'https://primaqy.com/founders/anshu-kumar',
+      canonicalUrl: 'https://primaqy.in/founders/anshu-kumar',
       ogTitle: 'Anshu Kumar — Co-Founder, PriMAqy',
       ogDescription:
         'Explore the official co-founder profile of Anshu Kumar: driving growth, community, and operations at PriMAqy.',

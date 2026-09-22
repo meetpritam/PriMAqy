@@ -6,7 +6,7 @@
 
 ```ini
 # Canonical Public URL of the platform (No trailing slash)
-NEXT_PUBLIC_SITE_URL=https://primaqy.vercel.app
+NEXT_PUBLIC_SITE_URL=https://primaqy.in
 
 # Analytics Identifier Placeholder
 NEXT_PUBLIC_ANALYTICS_ID=
