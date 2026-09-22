@@ -2,14 +2,17 @@ import React from 'react';
 import { ArrowRight, MessageSquare, Mail, Sparkles } from 'lucide-react';
 import { PageContainer } from '@/components/layout/PageContainer';
 import { Button } from '@/components/ui/Button';
+import { SpatialBackgroundEngine } from '@/components/3d/SpatialBackgroundEngine';
 
 export function FinalCTASection() {
   const whatsappUrl = 'https://wa.me/918252468903?text=Hello%20PriMAqy%20Team%2C%20I%20would%20like%20to%20connect.';
 
   return (
-    <section className="border-b border-[#e5e5e5] bg-[#ffffff] py-16 sm:py-24">
-      <PageContainer size="lg">
-        <div className="rounded-3xl border border-[#e5e5e5] bg-gradient-to-br from-[#171717] via-[#262626] to-[#0a0a0a] p-8 sm:p-14 text-white shadow-xl">
+    <section className="relative w-full max-w-full overflow-hidden border-b border-[#e5e5e5] bg-spatial-cta py-16 sm:py-24">
+      <SpatialBackgroundEngine variant="cta" />
+
+      <PageContainer size="lg" className="relative z-10 w-full max-w-full">
+        <div className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-8 sm:p-14 text-white shadow-2xl w-full">
           <div className="max-w-3xl mx-auto text-center space-y-6">
             
             <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3.5 py-1 text-xs font-mono text-white/90 backdrop-blur-md">
@@ -36,7 +39,7 @@ export function FinalCTASection() {
                 <span>Chat on WhatsApp (+91 8252468903)</span>
               </a>
 
-              <Button href="/contact" variant="secondary" size="lg" shape="pill" className="w-full sm:w-auto">
+              <Button href="/contact" variant="secondary" size="lg" shape="pill" className="w-full sm:w-auto bg-white/10 text-white border-white/20 hover:bg-white/20">
                 <Mail className="h-4 w-4" />
                 <span>Contact Page</span>
                 <ArrowRight className="h-4 w-4" />

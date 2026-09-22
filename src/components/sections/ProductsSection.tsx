@@ -4,16 +4,19 @@ import { PageContainer } from '@/components/layout/PageContainer';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { productsData } from '@/data/products';
+import { SpatialBackgroundEngine } from '@/components/3d/SpatialBackgroundEngine';
 
 export function ProductsSection() {
   const toolsetic = productsData.find((p) => p.slug === 'toolsetic') || productsData[0];
 
   return (
-    <section className="border-b border-[#e5e5e5] bg-[#ffffff] py-16 sm:py-24">
-      <PageContainer size="lg">
+    <section className="relative w-full max-w-full overflow-hidden border-b border-[#e5e5e5] bg-spatial-product py-16 sm:py-24">
+      <SpatialBackgroundEngine variant="product" />
+
+      <PageContainer size="lg" className="relative z-10 w-full max-w-full">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 pb-12 border-b border-[#e5e5e5]">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 pb-12 border-b border-[#e5e5e5] w-full">
           <div className="space-y-3 max-w-2xl">
             <div className="inline-flex items-center gap-2">
               <span className="h-1.5 w-1.5 rounded-full bg-blue-600" />
@@ -35,7 +38,7 @@ export function ProductsSection() {
         </div>
 
         {/* Feature Spotlight Card */}
-        <div className="mt-12 rounded-3xl border border-[#e5e5e5] bg-[#fafafa] p-6 sm:p-12">
+        <div className="mt-12 rounded-3xl border border-[#e5e5e5] bg-white/90 backdrop-blur-md p-6 sm:p-12 w-full">
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-center">
             
             {/* Left Info Column */}
@@ -82,8 +85,8 @@ export function ProductsSection() {
             </div>
 
             {/* Right Interactive Mockup Container */}
-            <div className="lg:col-span-6">
-              <div className="rounded-2xl border border-[#e5e5e5] bg-white p-6 shadow-sm space-y-4">
+            <div className="lg:col-span-6 w-full">
+              <div className="rounded-2xl border border-[#e5e5e5] bg-white p-6 shadow-sm space-y-4 w-full">
                 <div className="flex items-center justify-between border-b border-[#e5e5e5] pb-3">
                   <div className="flex items-center gap-2">
                     <span className="h-3 w-3 rounded-full bg-red-400" />

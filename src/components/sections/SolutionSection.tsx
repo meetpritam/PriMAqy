@@ -2,6 +2,7 @@ import React from 'react';
 import { Compass, Sparkles, Cpu, CheckCircle2 } from 'lucide-react';
 import { PageContainer } from '@/components/layout/PageContainer';
 import { SectionHeading } from '@/components/ui/SectionHeading';
+import { SpatialBackgroundEngine } from '@/components/3d/SpatialBackgroundEngine';
 
 const pillars = [
   {
@@ -44,8 +45,10 @@ const pillars = [
 
 export function SolutionSection() {
   return (
-    <section className="border-b border-[#e5e5e5] bg-[#fafafa] py-16 sm:py-24">
-      <PageContainer size="lg">
+    <section className="relative w-full max-w-full overflow-hidden border-b border-[#e5e5e5] bg-spatial-system py-16 sm:py-24">
+      <SpatialBackgroundEngine variant="system" />
+
+      <PageContainer size="lg" className="relative z-10 w-full max-w-full">
         <SectionHeading
           eyebrow="WHAT WE BUILD"
           title="Engineered for Discovery, Creation & Automation."
@@ -53,13 +56,13 @@ export function SolutionSection() {
           align="center"
         />
 
-        <div className="mt-12 sm:mt-16 space-y-6">
+        <div className="mt-12 sm:mt-16 space-y-6 w-full">
           {pillars.map((pillar, idx) => {
             const Icon = pillar.icon;
             return (
               <div
                 key={idx}
-                className="group relative rounded-2xl border border-[#e5e5e5] bg-white p-6 sm:p-10 transition-all duration-300 hover:border-[#d4d4d4] hover:shadow-md"
+                className="group relative rounded-2xl border border-[#e5e5e5] bg-white/90 backdrop-blur-md p-6 sm:p-10 transition-all duration-300 hover:border-[#d4d4d4] hover:shadow-md w-full"
               >
                 <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:items-center">
                   

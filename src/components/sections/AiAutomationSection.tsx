@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowRight, Database, Cpu, Zap, CheckCircle } from 'lucide-react';
 import { PageContainer } from '@/components/layout/PageContainer';
 import { SectionHeading } from '@/components/ui/SectionHeading';
+import { SpatialBackgroundEngine } from '@/components/3d/SpatialBackgroundEngine';
 
 const steps = [
   {
@@ -32,8 +33,10 @@ const steps = [
 
 export function AiAutomationSection() {
   return (
-    <section className="border-b border-[#e5e5e5] bg-[#fafafa] py-16 sm:py-24">
-      <PageContainer size="lg">
+    <section className="relative w-full max-w-full overflow-hidden border-b border-[#e5e5e5] bg-spatial-system py-16 sm:py-24">
+      <SpatialBackgroundEngine variant="system" />
+
+      <PageContainer size="lg" className="relative z-10 w-full max-w-full">
         <SectionHeading
           eyebrow="AI & AUTOMATION PIPELINE"
           title="From Raw Input to Automated Intelligence."
@@ -42,12 +45,12 @@ export function AiAutomationSection() {
         />
 
         {/* Pipeline Diagram Grid */}
-        <div className="mt-12 sm:mt-16 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 sm:mt-16 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 w-full">
           {steps.map((item, index) => {
             const Icon = item.icon;
             return (
-              <div key={index} className="relative group">
-                <div className="h-full rounded-2xl border border-[#e5e5e5] bg-white p-6 transition-all duration-300 hover:border-[#2563eb] hover:shadow-md flex flex-col justify-between">
+              <div key={index} className="relative group w-full">
+                <div className="h-full rounded-2xl border border-[#e5e5e5] bg-white/90 backdrop-blur-md p-6 transition-all duration-300 hover:border-[#2563eb] hover:shadow-md flex flex-col justify-between w-full">
                   <div>
                     <div className="flex items-center justify-between">
                       <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#fafafa] border border-[#e5e5e5] text-[#171717] group-hover:text-[#2563eb] transition-colors">

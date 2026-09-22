@@ -5,20 +5,24 @@ import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { companyData } from '@/data/company';
 import { AiCoreScene } from '@/components/3d/AiCoreScene';
+import { SpatialBackgroundEngine } from '@/components/3d/SpatialBackgroundEngine';
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden border-b border-[#e5e5e5] bg-mesh-glow py-12 sm:py-20 lg:py-28">
-      {/* Precision Grid Layer */}
-      <div className="pointer-events-none absolute inset-0 bg-tech-grid opacity-60" />
+    <section className="relative w-full max-w-full overflow-hidden border-b border-[#e5e5e5] bg-spatial-hero py-12 sm:py-20 lg:py-28">
+      {/* 3D Spatial Background Engine */}
+      <SpatialBackgroundEngine variant="hero" />
 
-      <PageContainer size="lg" className="relative z-10">
+      {/* Precision Grid Layer */}
+      <div className="pointer-events-none absolute inset-0 bg-tech-grid opacity-50" />
+
+      <PageContainer size="lg" className="relative z-10 w-full max-w-full">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-center">
           
           {/* Left Column: Editorial Headline & Actions */}
           <div className="space-y-6 lg:col-span-7">
             {/* Technical Eyebrow Pill */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#e5e5e5] bg-white px-3.5 py-1.5 text-xs font-mono font-medium text-[#171717] shadow-xs">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#e5e5e5] bg-white/90 backdrop-blur-md px-3.5 py-1.5 text-xs font-mono font-medium text-[#171717] shadow-xs">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-400 opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-blue-600" />
@@ -69,8 +73,8 @@ export function HeroSection() {
           </div>
 
           {/* Right Column: 3D AI Core Canvas Showcase */}
-          <div className="lg:col-span-5">
-            <div className="relative mx-auto max-w-md lg:max-w-none">
+          <div className="lg:col-span-5 w-full">
+            <div className="relative mx-auto max-w-md lg:max-w-none w-full">
               
               {/* Elevated Apple Surface Card */}
               <div className="relative rounded-2xl border border-[#e5e5e5] bg-white/90 p-4 sm:p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] backdrop-blur-xl">

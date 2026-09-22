@@ -2,6 +2,7 @@ import React from 'react';
 import { Layers, BrainCircuit, Workflow } from 'lucide-react';
 import { PageContainer } from '@/components/layout/PageContainer';
 import { SectionHeading } from '@/components/ui/SectionHeading';
+import { SpatialBackgroundEngine } from '@/components/3d/SpatialBackgroundEngine';
 
 const problems = [
   {
@@ -32,8 +33,10 @@ const problems = [
 
 export function ProblemSection() {
   return (
-    <section className="border-b border-[#e5e5e5] bg-[#ffffff] py-16 sm:py-24">
-      <PageContainer size="lg">
+    <section className="relative w-full max-w-full overflow-hidden border-b border-[#e5e5e5] bg-spatial-problem py-16 sm:py-24">
+      <SpatialBackgroundEngine variant="problem" />
+
+      <PageContainer size="lg" className="relative z-10 w-full max-w-full">
         <SectionHeading
           eyebrow="THE CHALLENGE"
           title="Technology is powerful. Using it effectively shouldn't be complicated."
@@ -42,13 +45,13 @@ export function ProblemSection() {
         />
 
         {/* 3-Column Editorial Grid */}
-        <div className="mt-12 sm:mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
+        <div className="mt-12 sm:mt-16 grid grid-cols-1 gap-6 md:grid-cols-3 w-full">
           {problems.map((item, index) => {
             const Icon = item.icon;
             return (
               <div
                 key={index}
-                className="group relative flex flex-col justify-between rounded-2xl border border-[#e5e5e5] bg-[#fafafa] p-6 sm:p-8 transition-all duration-300 hover:border-[#d4d4d4] hover:bg-white hover:shadow-md"
+                className="group relative flex flex-col justify-between rounded-2xl border border-[#e5e5e5] bg-white/90 backdrop-blur-md p-6 sm:p-8 transition-all duration-300 hover:border-[#d4d4d4] hover:bg-white hover:shadow-md w-full"
               >
                 <div>
                   {/* Icon Header */}
