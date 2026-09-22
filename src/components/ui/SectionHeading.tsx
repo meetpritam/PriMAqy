@@ -6,6 +6,7 @@ export interface SectionHeadingProps {
   title: string;
   description?: string;
   align?: 'left' | 'center';
+  action?: React.ReactNode;
   className?: string;
 }
 
@@ -14,6 +15,7 @@ export function SectionHeading({
   title,
   description,
   align = 'center',
+  action,
   className,
 }: SectionHeadingProps) {
   return (
@@ -26,20 +28,21 @@ export function SectionHeading({
     >
       {eyebrow && (
         <div className={cn('inline-flex items-center gap-2', align === 'center' ? 'justify-center' : 'justify-start')}>
-          <span className="h-1.5 w-1.5 rounded-full bg-blue-600" />
-          <p className="text-xs font-mono font-semibold uppercase tracking-widest text-[#2563eb]">
+          <span className="h-1.5 w-1.5 rounded-full bg-blue-600 animate-pulse" />
+          <p className="text-caption font-mono font-semibold text-[#2563eb]">
             {eyebrow}
           </p>
         </div>
       )}
-      <h2 className="text-2xl min-[400px]:text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.03em] text-[#171717] leading-[1.12]">
+      <h2 className="text-heading font-semibold text-[#0f172a]">
         {title}
       </h2>
       {description && (
-        <p className={cn("text-base sm:text-lg text-[#525252] leading-relaxed max-w-2xl font-normal", align === 'center' ? 'mx-auto' : '')}>
+        <p className={cn("text-body-lg text-[#475569] max-w-2xl font-normal", align === 'center' ? 'mx-auto' : '')}>
           {description}
         </p>
       )}
+      {action && <div className="pt-2">{action}</div>}
     </div>
   );
 }
