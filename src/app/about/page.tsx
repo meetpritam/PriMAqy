@@ -12,9 +12,10 @@ import { IconWrapper } from '@/components/ui/IconWrapper';
 import { RevealWrapper } from '@/components/ui/RevealWrapper';
 import { Breadcrumbs } from '@/components/content/Breadcrumbs';
 import { LeadershipSection } from '@/components/sections/LeadershipSection';
+import { PrinciplesSection } from '@/components/sections/PrinciplesSection';
 import { companyData } from '@/data/company';
 import { getOrganizationSchema, getBreadcrumbSchema } from '@/lib/structuredData';
-import { Target, Compass, ArrowRight, Cpu, ShieldCheck, Zap, Code2 } from 'lucide-react';
+import { Target, Compass, ArrowRight } from 'lucide-react';
 
 export const metadata = constructMetadata({
   title: 'About PriMAqy — AI & Technology Venture',
@@ -24,16 +25,6 @@ export const metadata = constructMetadata({
 });
 
 export default function AboutPage() {
-  const principles = [
-    { name: 'Practicality', desc: 'Build tools that solve tangible problems for real workflows.', icon: Cpu },
-    { name: 'Accessibility', desc: 'Make intelligent digital utilities easy to discover and use.', icon: Zap },
-    { name: 'Simplicity', desc: 'Intuitive user experiences with zero unnecessary clutter.', icon: Code2 },
-    { name: 'Innovation', desc: 'Harness modern AI models and high-performance web standards.', icon: Target },
-    { name: 'Privacy', desc: 'Zero unauthorized tracking and strong data isolation.', icon: ShieldCheck },
-    { name: 'Security', desc: 'Strict secret management and defense-in-depth architecture.', icon: ShieldCheck },
-    { name: 'Reliability', desc: 'High availability, fast loading speeds, and predictable behavior.', icon: Zap },
-    { name: 'Long-Term Thinking', desc: 'Build scalable software and infrastructure meant to endure.', icon: Compass },
-  ];
 
   const breadcrumbs = [
     { label: 'About Us' },
@@ -222,35 +213,8 @@ export default function AboutPage() {
       {/* Unified Leadership Section */}
       <LeadershipSection />
 
-      {/* Our Principles */}
-      <SectionWrapper className="border-y border-slate-200/80 bg-slate-50/60 py-20">
-        <PageContainer size="lg" className="space-y-12">
-          <RevealWrapper animation="fade-up">
-            <SectionHeading
-              eyebrow="Core Values"
-              title="Our Principles"
-              description="The engineering and ethical standards that guide every line of code we write."
-            />
-          </RevealWrapper>
-
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {principles.map((item, idx) => {
-              const IconComp = item.icon;
-              return (
-                <RevealWrapper key={item.name} animation="fade-up" delay={idx * 60}>
-                  <Card variant="glow" className="space-y-3 p-6 h-full transition-all duration-300">
-                    <IconWrapper size="md" variant="default">
-                      <IconComp className="h-5 w-5 text-blue-600" />
-                    </IconWrapper>
-                    <h3 className="text-lg font-bold text-slate-900">{item.name}</h3>
-                    <p className="text-xs text-slate-600 leading-relaxed">{item.desc}</p>
-                  </Card>
-                </RevealWrapper>
-              );
-            })}
-          </div>
-        </PageContainer>
-      </SectionWrapper>
+      {/* Engineering Principles & Philosophy */}
+      <PrinciplesSection />
 
       {/* CTA */}
       <SectionWrapper className="py-20">
