@@ -2,6 +2,10 @@ import React from 'react';
 import { ArrowRight, Database, Cpu, Zap, CheckCircle } from 'lucide-react';
 import { PageContainer } from '@/components/layout/PageContainer';
 import { SectionHeading } from '@/components/ui/SectionHeading';
+import { Card } from '@/components/ui/Card';
+import { IconWrapper } from '@/components/ui/IconWrapper';
+import { Badge } from '@/components/ui/Badge';
+import { RevealWrapper } from '@/components/ui/RevealWrapper';
 import { SpatialBackgroundEngine } from '@/components/3d/SpatialBackgroundEngine';
 
 const steps = [
@@ -33,52 +37,56 @@ const steps = [
 
 export function AiAutomationSection() {
   return (
-    <section className="relative w-full max-w-full overflow-hidden border-b border-[#e5e5e5] bg-spatial-system py-16 sm:py-24">
+    <section className="relative w-full max-w-full overflow-hidden border-b border-slate-200/80 bg-spatial-system py-16 sm:py-24">
       <SpatialBackgroundEngine variant="system" />
 
       <PageContainer size="lg" className="relative z-10 w-full max-w-full">
-        <SectionHeading
-          eyebrow="AI & AUTOMATION PIPELINE"
-          title="From Raw Input to Automated Intelligence."
-          description="A transparent look at how PriMAqy constructs friction-free computational workflows."
-          align="center"
-        />
+        <RevealWrapper animation="fade-up">
+          <SectionHeading
+            eyebrow="AI & AUTOMATION PIPELINE"
+            title="From Raw Input to Automated Intelligence."
+            description="A transparent look at how PriMAqy constructs friction-free computational workflows."
+            align="center"
+          />
+        </RevealWrapper>
 
         {/* Pipeline Diagram Grid */}
-        <div className="mt-12 sm:mt-16 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 w-full">
+        <div className="mt-12 sm:mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 w-full">
           {steps.map((item, index) => {
             const Icon = item.icon;
             return (
-              <div key={index} className="relative group w-full">
-                <div className="h-full rounded-2xl border border-[#e5e5e5] bg-white/90 backdrop-blur-md p-6 transition-all duration-300 hover:border-[#2563eb] hover:shadow-md flex flex-col justify-between w-full">
-                  <div>
-                    <div className="flex items-center justify-between">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#fafafa] border border-[#e5e5e5] text-[#171717] group-hover:text-[#2563eb] transition-colors">
-                        <Icon className="h-5 w-5" />
+              <RevealWrapper key={index} animation="fade-up" delay={index * 100} className="h-full">
+                <div className="relative group w-full h-full">
+                  <Card variant="glow" className="h-full p-6 sm:p-7 flex flex-col justify-between w-full">
+                    <div>
+                      <div className="flex items-center justify-between">
+                        <IconWrapper size="md" variant="accent">
+                          <Icon className="h-5 w-5 text-blue-600" />
+                        </IconWrapper>
+                        <Badge variant="secondary" className="font-mono font-bold text-slate-500">
+                          {item.step}
+                        </Badge>
                       </div>
-                      <span className="font-mono text-xs font-bold text-[#a3a3a3]">
-                        {item.step}
-                      </span>
+
+                      <h3 className="mt-5 text-lg font-bold text-slate-900 tracking-tight">
+                        {item.title}
+                      </h3>
+
+                      <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        {item.description}
+                      </p>
                     </div>
 
-                    <h3 className="mt-5 text-lg font-semibold text-[#171717] tracking-tight">
-                      {item.title}
-                    </h3>
-
-                    <p className="mt-2 text-xs sm:text-sm text-[#525252] leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
-
-                  {index < steps.length - 1 && (
-                    <div className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 z-10">
-                      <div className="flex h-6 w-6 items-center justify-center rounded-full bg-white border border-[#e5e5e5] text-[#a3a3a3] shadow-xs">
-                        <ArrowRight className="h-3 w-3" />
+                    {index < steps.length - 1 && (
+                      <div className="hidden lg:block absolute -right-3.5 top-1/2 -translate-y-1/2 z-20">
+                        <div className="flex h-7 w-7 items-center justify-center rounded-full bg-white border border-slate-200 text-blue-600 shadow-xs">
+                          <ArrowRight className="h-3.5 w-3.5" />
+                        </div>
                       </div>
-                    </div>
-                  )}
+                    )}
+                  </Card>
                 </div>
-              </div>
+              </RevealWrapper>
             );
           })}
         </div>
